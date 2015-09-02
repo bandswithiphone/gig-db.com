@@ -1,0 +1,257 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+/*body*/
+
+document, body {
+  margin:0;
+  padding:0;
+}
+
+body {
+  background-color: #fafafa;
+  color: #303f9f;
+  font-family: Maiden Orange;
+  background: linear-gradient(to right, #fafafa, #303f9f 88%, #303f9f);
+}
+
+
+/*home page */
+
+.welcome {
+background-image:url("Image1.jpg");
+background-size: 100%;
+background-repeat: no-repeat;
+padding-top: 10px;
+padding-bottom: 10px;
+min-height: 600px;
+}
+
+h3 {
+  color: #B22222;
+  font-size: 22px;
+  margin: 14px;
+}
+
+/*concert search filters*/
+
+.btn {
+  padding: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 0.33rem;
+  background-color: #B22222;
+  color: #fafafa;
+  font-weight: lighter;
+  font-size: 22px;
+  transition: 0.5s;
+  font-family: Maiden Orange;
+}
+
+.btn:hover {
+  box-shadow: none;
+}
+
+.input_field {
+  border-width: 3px;
+  border-color: #303f9f;
+  border-radius: 4px;
+  color: #B22222;
+  font-size: 17px;
+  font-family: Maiden Orange;
+  width: 175px;/*
+  */display: inline block;
+  padding: 3%;
+  margin-left: 16px;
+}
+.user_input {
+  border-width: 3px;
+  border-color: #303f9f;
+  border-radius: 4px;
+  color: #B22222;
+  font-size: 22px;
+  font-family: Maiden Orange;
+  width: 300px;
+  /*display: inline block;*/
+  padding: 3%;
+  margin-left: 16px;
+}
+.new_user {
+  font-size: 22px;
+  margin-left: 16px;
+}
+
+.concert_search {
+  display: inline block;
+  float: left;
+  /*padding: 30px 0 0 35px;*/
+  width: 202px;
+  margin-left: 16px;
+  /*border-color: #303f9f;
+  border-width: 5px;*/
+  color: #B22222;
+}
+ 
+.concert_search:first-child {
+  padding: 20px 0 0 0;
+}
+
+/*pagination*/
+.pagination {
+margin-left: 16px;
+
+}
+/*concert table details*/
+th, td {
+  padding: 4px;
+  padding-left: 15px;
+}
+
+td {
+  font-size: 22px;
+}
+
+/*header all pages, colour of header changes on the home page, though*/
+
+.material-icons {
+  color: white;
+  font-size: 60px; 
+}
+
+#nav-bar {
+  height: 60px;
+  border-bottom: 4px solid #303f9f;
+  background-color: #303f9f;
+  width: 100%;
+}
+
+#nav-bar-home {
+  border-bottom: 4px solid #000000;
+  background-color: #000000;
+}
+
+#nav-bar #profile-image {
+  height: 80%;
+}
+
+#profile-image img {
+  border-radius: 50px;
+}
+
+#nav-bar div {
+  display: inline-block;
+  margin: 5px;
+}
+
+#gig-db {
+  color: #B22222;
+  font-size: 40px;
+  font-style: oblique;
+  float: right;
+  font-family: Maiden Orange;
+}
+
+.welcome {
+  color: #009ACD;
+  font-size: 20px;
+}
+
+/*footer on all pages*/
+#footer {
+  width: 100%;
+  background-color: #311b92;
+  overflow: hidden;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  height: 125px;
+}
+
+.footer-item {
+  margin: 5px;
+  display: inline-block;
+  font-size: 15px;
+}
+
+.footer-item a {
+  color: #fafafa;
+}
+
+.col { 
+  background: #311b92;
+  float: left;
+  padding: 30px 0 0 35px;
+  width: 310px;
+  margin-left: 50px;
+}
+ 
+.col:first-child {
+  padding: 30px 0 0 0;
+}
+
+h1 {
+  color:  #B22222;
+}
+ 
+h2 { 
+  background: url(extra-title-bg.jpg); 
+  color: #fafafa;
+  float: left; 
+  font: bold 16px Arial, Helvetica, sans-serif; 
+  font-variant: small-caps; 
+  margin: 0 0 20px 0; 
+  padding: 9px 0 0 19px; 
+  height: 33px; 
+  width: 291px;
+}
+ 
+ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+  color: #fafafa;
+}
+ 
+li { 
+  background: url(extra-links-bg.jpg); 
+  border-bottom: 1px dotted #B22222; 
+  border-top: 1px dotted #B22222; 
+  float: left; 
+  height: 35px; 
+  margin: 3px 0;
+  padding: 5px; 
+  width: 310px; 
+}
+ 
+li a { 
+  color: #fafafa;
+  display: block;
+  float: left; 
+  text-decoration: none;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  display: list-item;
+  text-align: -webkit-match-parent;
+}
+ 
+li:hover { 
+  background: #5fa4c5;
+}
+
+img {
+  height: 296px;
+  width: 296px;
+  border-radius: 7px;
+}
+
