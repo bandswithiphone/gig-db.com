@@ -1,6 +1,6 @@
 class Concert < ActiveRecord::Base
 
-  # belongs_to: user
+  belongs_to :user
 
   scope :search_artist, -> { where(artist: true) }
   scope :search_venue, -> { where(venue: true) }

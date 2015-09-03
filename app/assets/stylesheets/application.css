@@ -64,6 +64,10 @@ h3 {
   box-shadow: none;
 }
 
+input {
+  background-color: #fafafa;
+}
+
 .input_field {
   border-width: 3px;
   border-color: #303f9f;

@@ -5,6 +5,7 @@ class ConcertsController < ApplicationController
   # GET /concerts.json
   def index
     @concerts = Concert.search(params[:artist], params[:venue], params[:city], params[:country]).order(date: :desc).page(params[:page]).per(5) 
+    @concerts = @concerts.where(user_id: params[:user_id]) if params[:user_id]
   end
 
   # GET /concerts/1
