@@ -1,2 +1,30 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div id="nav-bar">
+  <div>
+    <i class="large material-icons">queue_music</i>
+    <h3 id ="gig-db">GIG-db.com</h3>
+  </div>
+  <div id= 'logout'>
+  <% if current_user.present? %>
+  <%= link_to 'Log out', logout_path %>
+  <% end %>
+</div>
+
+<h1>Login with your email to view and update your concert list</h1>
+  <%= form_for :session, url: log_in_path do |f| %>
+  
+  <div class="new_user">
+    <%= f.label 'Email' %><br>
+    <%= f.text_field :email, :class => 'user_input', :placeholder => 'Enter your email' %>
+  </div>
+  <br>
+  <div class="new_user">
+    <%= f.label 'Password' %><br>
+    <%= f.password_field :password, :class => 'user_input', :placeholder => 'Enter your password' %>
+  </div>
+  <br>
+  <div class= "submit_concert_button" >
+    <%= submit_tag "Login", { :class => 'btn' } %> 
+  </div>
+  <br>
+ <% end %>
+

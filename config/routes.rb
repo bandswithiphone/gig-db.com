@@ -9,7 +9,12 @@ Rails.application.routes.draw do
     resources :concerts
   end
 
-  get 'welcome/index'
+  resources :sessions, only: [:new, :create, :destroy]
+  get 'signup', to: 'users#new', as: 'signup'
+  get 'log_in', to: 'sessions#new', as: 'login'
+  get 'log_out', to: 'sessions#destroy', as: 'logout'
+  post 'log_in', to: 'sessions#create'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

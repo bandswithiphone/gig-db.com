@@ -1,3 +1,14 @@
+<div id="nav-bar">
+  <div>
+    <i class="large material-icons">queue_music</i>
+    <h3 id ="gig-db">GIG-db.com</h3>
+  </div>
+  <div id= 'logout'>
+  <% if current_user.present? %>
+  <%= link_to 'Log out', logout_path %>
+  <% end %>
+</div>
+
 <h1>Editing Concert</h1>
 
 <%= render 'form' %>

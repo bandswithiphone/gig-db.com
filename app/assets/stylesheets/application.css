@@ -48,7 +48,7 @@ h3 {
 /*concert search filters*/
 
 .btn {
-  padding: 1rem;
+  padding: 10px 0px 10px 3px;
   outline: none;
   border: none;
   border-radius: 0.33rem;
@@ -56,6 +56,7 @@ h3 {
   color: #fafafa;
   font-weight: lighter;
   font-size: 22px;
+  height: 42px;
   transition: 0.5s;
   font-family: Maiden Orange;
 }
@@ -64,20 +65,16 @@ h3 {
   box-shadow: none;
 }
 
-input {
-  background-color: #fafafa;
-}
-
 .input_field {
   border-width: 3px;
   border-color: #303f9f;
   border-radius: 4px;
   color: #B22222;
-  font-size: 17px;
+  font-size: 20px;
   font-family: Maiden Orange;
-  width: 175px;/*
-  */display: inline block;
-  padding: 3%;
+  width: 175px;
+  height: 42px;
+  padding: 11px 0px 11px 3px;
   margin-left: 16px;
 }
 .user_input {
@@ -88,10 +85,28 @@ input {
   font-size: 22px;
   font-family: Maiden Orange;
   width: 300px;
-  /*display: inline block;*/
-  padding: 3%;
+  height: 46px;
+  padding: 11px 0px 10px 3px;
   margin-left: 16px;
 }
+
+/*search fields positioning*/
+#artist {
+  position: absolute;
+}
+
+#venue {
+  position: relative;
+}
+
+#city {
+  position: relative;
+}
+
+#country {
+  position: relative;
+}
+
 .new_user {
   font-size: 22px;
   margin-left: 16px;
@@ -159,12 +174,38 @@ td {
   margin: 5px;
 }
 
+.large material-icons {
+  position: absolute;
+}
 #gig-db {
   color: #B22222;
   font-size: 40px;
   font-style: oblique;
+  position: relative;
   float: right;
   font-family: Maiden Orange;
+}
+
+#logout {
+  padding: 1rem;
+  outline: none;
+  border: none;
+  border-radius: 0.33rem;
+  background-color: #fafafa;
+  color: #fafafa;
+  font-weight: lighter;
+  font-size: 22px;
+  transition: 0.5s;
+  font-family: Maiden Orange;
+  position: relative;
+  float: right;
+  text-align: center;
+}
+
+#logout:hover {
+  box-shadow: none;
+  background-color: #fafafa;
+  color: #fafafa;
 }
 
 .welcome {
@@ -204,6 +245,14 @@ td {
   padding: 30px 0 0 0;
 }
 
+a {
+  text-decoration: underline;
+}
+a:hover {
+  color: #B22222;
+
+}
+
 h1 {
   color:  #B22222;
 }
@@ -237,7 +286,7 @@ li {
   padding: 5px; 
   width: 310px; 
 }
- 
+
 li a { 
   color: #fafafa;
   display: block;

@@ -11,6 +11,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def login
+    render :new
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -27,13 +31,14 @@ class UsersController < ApplicationController
       # format.json { render json: @user.errors, status: :unprocessable_entity }
       render :new
     end
-
   end
 
   def edit
   end
 
   def destroy
+    # session[:user_id] = nil
+    # redirect_to concerts_path, notice: "Adios!"
   end
 
   protected
@@ -41,4 +46,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
+
 end
