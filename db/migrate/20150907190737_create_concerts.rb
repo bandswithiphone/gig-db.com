@@ -2,11 +2,8 @@ class CreateConcerts < ActiveRecord::Migration
   def change
     create_table :concerts do |t|
       t.string :artist
-      t.string :venue
-      t.string :city
       t.date :date
-
-      t.timestamps null: false
+      t.integer :venue_id
     end
   end
 end

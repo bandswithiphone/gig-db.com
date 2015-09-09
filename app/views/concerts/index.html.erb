@@ -3,11 +3,14 @@
     <i class="large material-icons">queue_music</i>
     <h3 id ="gig-db">GIG-db.com</h3>
   </div>
-  <div id= 'logout'>
-  <% if current_user.present? %>
-  <%= link_to 'Log out', logout_path %>
-  <% end %>
-</div>
+  <div id='logout'>
+    <% if current_user.present? %>
+    <%= link_to 'Log out', logout_path %>
+    <% else %>
+    <%= link_to 'Login', login_path %>
+    <% end %>
+  </div>
+
 
 <p id="notice"><%= notice %></p>
 
@@ -20,7 +23,7 @@
     </div>
     <div class= "concert_search">
         <%= label_tag "Venue" %><br>
-        <%= text_field_tag :venue, params[:venue], :class => 'input_field', :placeholder => 'Search venues' %>
+        <%= text_field_tag :name, params[:name], :class => 'input_field', :placeholder => 'Search venues' %>
     </div>
     <div class= "concert_search">
         <%= label_tag "City" %><br>
@@ -36,15 +39,6 @@
       <% end %>
 
 <table class="hoverable">
-  <!-- <thead class="tablehead">
-    <tr>
-      <th>Artist</th>
-      <th>Venue</th>
-      <th>City</th>
-      <th>Date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead> -->
   <tbody>
     <br>
     <%= paginate @concerts %> 
@@ -52,11 +46,11 @@
     <% @concerts.each do |concert| %>
       <tr>
         <td><%= concert.artist %></td>
-        <td><%= concert.venue %></td>
-        <td><%= concert.city %></td>
-        <td><%= concert.country %></td>
+        <td><%= concert.venue.name %></td>
+        <td><%= concert.venue.city %></td>
+        <td><%= concert.venue.country %></td>
         <td><%= concert.date %></td>
-        <td><%= link_to 'Show Photo', concert %></td>
+        <td><%= link_to 'Show photo', concert %></td>
         <% if current_user.present? %>
         <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
         <td><%= link_to 'Delete', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -69,9 +63,12 @@
 <br>
 
 <% if current_user.present? %>
-<%= link_to 'Add a New Concert', new_concert_path %>
+<%= link_to 'Add a new concert to my concert list', new_concert_path %> |
+<%= link_to 'Add a new venue', new_venue_path %>
+<br>
+<br>
+<%= link_to 'Go to main concert page', concerts_path %>
 <% else %>
-<%= link_to 'Create an Account', new_user_path %>
-<%= link_to 'Login', login_path %>
+<%= link_to 'Create an account', new_user_path %>
 <% end %>
 

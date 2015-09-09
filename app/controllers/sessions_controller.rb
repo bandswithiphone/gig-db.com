@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     #   redirect_to concerts_path, notice: "Welcome back, #{@user.firstname}!"
     # else
     #   flash.now[:alert] = "Log in failed..."
-      render :new
+    render :new
     # end
   end
 
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
-      redirect_to concerts_path, notice: "Welcome, #{@user.username}!"
+      redirect_to user_concerts_path(@user), notice: "Welcome, #{@user.username}!"
     else
       render :new, alert: "Log in failed..."
     end

@@ -11,27 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902204239) do
+ActiveRecord::Schema.define(version: 20150908004036) do
 
   create_table "concerts", force: :cascade do |t|
-    t.string   "artist"
-    t.string   "venue"
-    t.string   "city"
-    t.date     "date"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "country"
-    t.integer  "user_id"
+    t.string  "artist"
+    t.date    "date"
+    t.integer "venue_id"
   end
 
-  add_index "concerts", ["user_id"], name: "index_concerts_on_user_id"
+  create_table "concerts_users", id: false, force: :cascade do |t|
+    t.integer "user_id",    null: false
+    t.integer "concert_id", null: false
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string  "photo"
+    t.integer "user_id"
+    t.integer "concert_id"
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string  "name"
+    t.string  "city"
+    t.string  "country"
+    t.integer "concert_id"
   end
 
 end

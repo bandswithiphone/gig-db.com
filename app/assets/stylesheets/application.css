@@ -86,8 +86,12 @@ h3 {
   font-family: Maiden Orange;
   width: 300px;
   height: 46px;
-  padding: 11px 0px 10px 3px;
+  padding: 15px 0px 10px 3px;
   margin-left: 16px;
+}
+
+select {
+  background-color: #fafafa;
 }
 
 /*search fields positioning*/
@@ -129,9 +133,28 @@ h3 {
 
 /*pagination*/
 .pagination {
-margin-left: 16px;
-
+  clear:both;
+  position:absolute;
+  text-align:center;
 }
+
+.pagination span, .pagination a {
+  display:inline-block;
+  margin: 2px 2px 2px 0;
+  padding:6px 9px 5px 9px;
+  text-decoration:none;
+  color: #B22222;
+  background: #fafafa;
+}
+
+.pagination .current{
+  margin: 2px 2px 2px 0;
+  padding:6px 9px 5px 9px;
+  /*font-weight: bold;*/
+  background: #fafafa;
+}
+
+
 /*concert table details*/
 th, td {
   padding: 4px;
@@ -140,6 +163,17 @@ th, td {
 
 td {
   font-size: 22px;
+}
+
+.form-control {
+  font-family: Maiden Orange;
+  color: #B22222;
+}
+
+button, input, select, textarea {
+  font-family: Maiden Orange;
+  color: #B22222;
+  position: relative;
 }
 
 /*header all pages, colour of header changes on the home page, though*/
@@ -178,7 +212,7 @@ td {
   position: absolute;
 }
 #gig-db {
-  color: #B22222;
+  color: #fafafa;
   font-size: 40px;
   font-style: oblique;
   position: relative;
@@ -261,7 +295,7 @@ h2 {
   background: url(extra-title-bg.jpg); 
   color: #fafafa;
   float: left; 
-  font: bold 16px Arial, Helvetica, sans-serif; 
+  font-family: Maiden Orange; 
   font-variant: small-caps; 
   margin: 0 0 20px 0; 
   padding: 9px 0 0 19px; 
@@ -292,7 +326,7 @@ li a {
   display: block;
   float: left; 
   text-decoration: none;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: Maiden Orange;
   font-size: 13px;
   display: list-item;
   text-align: -webkit-match-parent;
@@ -308,3 +342,6 @@ img {
   border-radius: 7px;
 }
 
+.date_select {
+  font-family: Maiden Orange;
+}

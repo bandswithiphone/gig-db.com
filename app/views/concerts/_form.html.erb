@@ -2,7 +2,6 @@
   <% if @concert.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
-
       <ul>
       <% @concert.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -16,8 +15,8 @@
     <%= f.text_field :artist, :class => 'input_field' %>
   </div>
   <div class="concert_search">
-    <%= f.label :venue %><br>
-    <%= f.text_field :venue, :class => 'input_field' %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => 'input_field' %>
   </div>
   <div class="concert_search">
     <%= f.label :city %><br>
@@ -29,10 +28,11 @@
   </div>
   <div class="concert_search">
     <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.text_field :date, 'data-provide' => 'datepicker' %>
   </div>
   <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="submit_concert_button">
+    <%= f.submit "Search" { :class => 'btn' }%>
   </div>
 <% end %>
+

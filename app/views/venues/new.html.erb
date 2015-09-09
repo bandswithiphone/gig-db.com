@@ -1,0 +1,51 @@
+<div id="nav-bar">
+  <div>
+    <i class="large material-icons">queue_music</i>
+    <h3 id ="gig-db">GIG-db.com</h3>
+  </div>
+  <div id= 'logout'>
+    <% if current_user.present? %>
+    <%= link_to 'Log out', logout_path %>
+    <% else %>
+    <%= link_to 'Login', login_path %>
+    <% end %>
+  </div>
+
+
+<h1>Add a New Venue</h1>
+
+<%= form_for(@venue) do |f| %>
+  <% if @venue.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
+
+      <ul>
+      <% @venue.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="venue_search">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, :class => 'input_field' %>
+  </div>
+  <div class="venue_search">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, :class => 'input_field' %>
+  </div>
+  <div class="venue_search">
+    <%= f.label :country %><br>
+    <%= f.text_field :country, :class => 'input_field' %>
+  </div>
+  <br>
+  <div class="submit_concert_button" >
+    <%= f.submit "Add the venue", { :class => 'btn' } %> 
+  </div>
+<% end %>
+<br>
+
+<%= link_to 'Back to my concert list', concerts_path %> |
+<%= link_to 'Add a new venue', new_venue_path %>
+

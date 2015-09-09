@@ -4,12 +4,15 @@
     <h3 id ="gig-db">GIG-db.com</h3>
   </div>
   <div id= 'logout'>
-  <% if current_user.present? %>
-  <%= link_to 'Log out', logout_path %>
-  <% end %>
-</div>
+    <% if current_user.present? %>
+    <%= link_to 'Log out', logout_path %>
+    <% else %>
+    <%= link_to 'Login', login_path %>
+    <% end %>
+  </div>
 
-<h1>Add a New Concert</h1>
+
+<h1>Add a new concert</h1>
 
 <%= form_for(@concert) do |f| %>
   <% if @concert.errors.any? %>
@@ -29,25 +32,25 @@
     <%= f.text_field :artist, :class => 'input_field' %>
   </div>
   <div class="concert_search">
-    <%= f.label :venue %><br>
-    <%= f.text_field :venue, :class => 'input_field' %>
-  </div>
-  <div class="concert_search">
-    <%= f.label :city %><br>
-    <%= f.text_field :city, :class => 'input_field' %>
-  </div>
-  <div class="concert_search">
-    <%= f.label :country %><br>
-    <%= f.text_field :country, :class => 'input_field' %>
-  </div>
-  <div class="concert_search">
     <%= f.label :date %><br>
     <%= f.date_select :date %>
   </div>
-  <br>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="concert_search">
+    <%= f.label :venue %><br>
+    <%= collection_select(:concert, :venue_id, @venues.order('name ASC'), :id, :name, prompt: true, :class => 'input_field' ) %>
+  </div>
+  <div class="submit_concert_button">
+    <%= f.submit "Add the concert", { :class => 'btn' }%>
   </div>
 <% end %>
+<br>
+<br>
 
-<%= link_to 'Back', concerts_path %>
+
+<h3>Venue not on the list? <%=link_to 'Add a new venue', new_venue_path %></h3>
+
+<h3><%= link_to 'Back to my concert list', user_concerts_path(current_user) %></h3>
+
+
+
+

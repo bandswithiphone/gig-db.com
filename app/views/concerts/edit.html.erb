@@ -5,13 +5,27 @@
   </div>
   <div id= 'logout'>
   <% if current_user.present? %>
-  <%= link_to 'Log out', logout_path %>
+  <%= link_to 'Logout', logout_path %>
   <% end %>
 </div>
 
 <h1>Editing Concert</h1>
-
-<%= render 'form' %>
+<%= form_for(@concert) do |f| %>
+ <div class="concert_search">
+    <%= f.label :artist %><br>
+    <%= f.text_field :artist, :class => 'input_field' %>
+  </div>
+  <div class="concert_search">
+    <%= f.label :date %><br>
+    <%= f.text_field :date, :class => 'input_field' %>
+  </div>
+  <br>
+  <div class="submit_concert_button">
+    <%= f.submit "Edit the concert" , { :class => 'btn' } %>
+  </div>
+<% end %>
+<br> 
 
 <%= link_to 'Show', @concert %> |
-<%= link_to 'Back', concerts_path %>
+<%= link_to 'Back to my concert list', user_concerts_path(current_user) %> |
+<%= link_to 'Go to main concert page', concerts_path %>

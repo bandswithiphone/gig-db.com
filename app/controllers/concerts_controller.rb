@@ -4,8 +4,18 @@ class ConcertsController < ApplicationController
   # GET /concerts
   # GET /concerts.json
   def index
-    @concerts = Concert.search(params[:artist], params[:venue], params[:city], params[:country]).order(date: :desc).page(params[:page]).per(5) 
-    @concerts = @concerts.where(user_id: params[:user_id]) if params[:user_id]
+    @concerts = Concert.all.joins(:venue)
+    # @concerts = Concert.all.includes(:venue)
+    @concerts = @concerts.where(artist: params[:artist]) unless params[:artist].blank?
+    # @concerts = @concerts.where(date: params[:date]) if params[:date]
+    @concerts = @concerts.where(venue: {name: params[:name]}) unless params[:name].blank?
+    @concerts = @concerts.where(venue: {city: params[:city]}) unless params[:city].blank?
+    @concerts = @concerts.where(venue: {country: params[:country]}) unless params[:country].blank?
+    if current_user
+      @concerts = current_user.concerts.order(date: :desc).page(params[:page]).per(10)
+    else
+      @concerts = @concerts.order(date: :desc).page(params[:page]).per(10)
+    end
   end
 
   # GET /concerts/1
@@ -15,17 +25,24 @@ class ConcertsController < ApplicationController
 
   # GET /concerts/new
   def new
+    # @concert = Concert.joins(:venue)
     @concert = Concert.new
+    @concert.venue = Venue.new
+    @venues = Venue.all
+
   end
 
   # GET /concerts/1/edit
   def edit
+    # @concert = Concert.joins(:venue)
+    @concert = Concert.find(params[:id])
   end
 
   # POST /concerts
   # POST /concerts.json
   def create
     @concert = Concert.new(concert_params)
+    @concert.users << current_user
 
     respond_to do |format|
       if @concert.save
@@ -70,6 +87,6 @@ class ConcertsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def concert_params
-      params.require(:concert).permit(:artist, :venue, :city, :country, :date)
+      params.require(:concert).permit(:artist,:date,:venue_id)
     end
 end

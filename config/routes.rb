@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :concerts
   end
 
+  resources :venues
+
   resources :sessions, only: [:new, :create, :destroy]
   get 'signup', to: 'users#new', as: 'signup'
   get 'log_in', to: 'sessions#new', as: 'login'
