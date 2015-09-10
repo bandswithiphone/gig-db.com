@@ -4,19 +4,23 @@ class ConcertsController < ApplicationController
   # GET /concerts
   # GET /concerts.json
   def index
+    # binding.pry
     @concerts = Concert.all.joins(:venue)
     # @concerts = Concert.all.includes(:venue)
-    @concerts = @concerts.where(artist: params[:artist]) unless params[:artist].blank?
+    @concerts = @concerts.where(["artist LIKE ?", "%#{params[:artist]}%"]) unless params[:artist].blank?
     # @concerts = @concerts.where(date: params[:date]) if params[:date]
-    @concerts = @concerts.where(venue: {name: params[:name]}) unless params[:name].blank?
-    @concerts = @concerts.where(venue: {city: params[:city]}) unless params[:city].blank?
-    @concerts = @concerts.where(venue: {country: params[:country]}) unless params[:country].blank?
+    @concerts = @concerts.where(["venues.name LIKE ?", "%#{params[:name]}%"]) unless params[:name].blank?
+    # @concerts = @concerts.associated_venues(params[:name]) unless params[:name].blank?
+    @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:city]}%"]) unless params[:city].blank?
+    @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:country]}%"]) unless params[:country].blank?
     if current_user
       @concerts = current_user.concerts.order(date: :desc).page(params[:page]).per(10)
     else
       @concerts = @concerts.order(date: :desc).page(params[:page]).per(10)
     end
   end
+
+  # odel.where("city LIKE :city AND name LIKE :name", { city: "%#{q}%", name: "%#{b}%"  })
 
   # GET /concerts/1
   # GET /concerts/1.json

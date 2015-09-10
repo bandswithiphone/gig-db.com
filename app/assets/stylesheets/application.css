@@ -31,12 +31,12 @@ body {
 /*home page */
 
 .welcome {
-background-image:url("Image1.jpg");
-background-size: 100%;
-background-repeat: no-repeat;
-padding-top: 10px;
-padding-bottom: 10px;
-min-height: 600px;
+  background-image:url("Image1.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-height: 600px;
 }
 
 h3 {
@@ -66,13 +66,14 @@ h3 {
 }
 
 .input_field {
+  border-style: solid;
   border-width: 3px;
   border-color: #303f9f;
   border-radius: 4px;
   color: #B22222;
   font-size: 20px;
   font-family: Maiden Orange;
-  width: 175px;
+  width: 250px;
   height: 42px;
   padding: 11px 0px 11px 3px;
   margin-left: 16px;
@@ -92,6 +93,9 @@ h3 {
 
 select {
   background-color: #fafafa;
+  height: 42px;
+  border-width: 3px;
+  border-color: #303f9f;
 }
 
 /*search fields positioning*/
@@ -120,8 +124,8 @@ select {
   display: inline block;
   float: left;
   /*padding: 30px 0 0 35px;*/
-  width: 202px;
-  margin-left: 16px;
+  width: 272px;
+  margin-left: 8px;
   /*border-color: #303f9f;
   border-width: 5px;*/
   color: #B22222;
@@ -129,6 +133,10 @@ select {
  
 .concert_search:first-child {
   padding: 20px 0 0 0;
+}
+
+.new_concert {
+  width: 850px;
 }
 
 /*pagination*/
@@ -154,7 +162,6 @@ select {
   background: #fafafa;
 }
 
-
 /*concert table details*/
 th, td {
   padding: 4px;
@@ -176,6 +183,13 @@ button, input, select, textarea {
   position: relative;
 }
 
+a {
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #B22222;
+}
 /*header all pages, colour of header changes on the home page, though*/
 
 .material-icons {
@@ -248,7 +262,7 @@ button, input, select, textarea {
 }
 
 /*footer on all pages*/
-#footer {
+/*#footer {
   width: 100%;
   background-color: #311b92;
   overflow: hidden;
@@ -308,9 +322,9 @@ ul {
   margin: 0; 
   padding: 0; 
   color: #fafafa;
-}
+}*/
  
-li { 
+/*li { 
   background: url(extra-links-bg.jpg); 
   border-bottom: 1px dotted #B22222; 
   border-top: 1px dotted #B22222; 
@@ -319,29 +333,88 @@ li {
   margin: 3px 0;
   padding: 5px; 
   width: 310px; 
-}
+}*/
 
 li a { 
   color: #fafafa;
   display: block;
-  float: left; 
+  /*float: left; */
   text-decoration: none;
   font-family: Maiden Orange;
   font-size: 13px;
   display: list-item;
   text-align: -webkit-match-parent;
+  list-style: none;
+  width: 226px;
 }
  
-li:hover { 
-  background: #5fa4c5;
-}
+/*li:hover { 
+  background: #B22222;
+}*/
 
 img {
-  height: 296px;
-  width: 296px;
-  border-radius: 7px;
+  height: 226px;
+  width: 226px;
 }
 
 .date_select {
   font-family: Maiden Orange;
+}
+
+/*photos*/
+.photos li, .photos li {
+  display: inline-block;
+  width: 256px;
+  height: 256px;
+  margin: 0px 20px 20px 0px;
+  list-style: none;
+}
+
+img, .insta_photo {
+  display: inline-block;
+  width: 229px;
+  height: 226px;
+  vertical-align: middle;
+  background-color: none;
+}
+
+img, .insta_photo:hover {
+  border:none;
+}
+
+.username {
+  display: inline-block;
+  width: 203px;
+  height: 27px;
+  /*margin-top: 1px;*/
+  margin-left: 0px;
+  margin-bottom: 21px;
+  font-size: 20px;
+  color: #fafafa;
+  background-color: #000000;
+}
+
+.userphoto {
+  display: inline-block;
+  width: 26px;
+  height: 27px;
+  /*margin-top: 1px;*/
+  margin-bottom: 21px;
+  font-size: 18px;
+  float: left;
+  border-radius: 6px;
+}
+
+  /*.user_details {
+    background: #303f9f;
+  }*/
+/*img {
+  border-radius: 10px;
+  border: 1px solid #DEDEDE;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}*/
+
+p {
+  font-style: italic;
+  color: #B22222;
 }

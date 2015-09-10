@@ -37,7 +37,7 @@
   </div>
   <div class="concert_search">
     <%= f.label :venue %><br>
-    <%= collection_select(:concert, :venue_id, @venues.order('name ASC'), :id, :name, prompt: true, :class => 'input_field' ) %>
+    <%= collection_select(:concert, :venue_id, @venues.order('name ASC'), :id, :name_with_city, prompt: true, :class => 'input_field' ) %>
   </div>
   <div class="submit_concert_button">
     <%= f.submit "Add the concert", { :class => 'btn' }%>

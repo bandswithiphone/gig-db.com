@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_concerts_path(@user), notice: "Welcome, #{@user.username}!"
     else
-      render :new, alert: "Log in failed..."
+      render :new, alert: "Email and password not recognised.  Try again?"
     end
   end
 
