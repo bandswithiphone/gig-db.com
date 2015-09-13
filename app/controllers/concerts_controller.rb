@@ -4,19 +4,15 @@ class ConcertsController < ApplicationController
   # GET /concerts
   # GET /concerts.json
   def index
-    # binding.pry
     @concerts = Concert.all.joins(:venue)
-    # @concerts = Concert.all.includes(:venue)
     @concerts = @concerts.where(["artist LIKE ?", "%#{params[:artist]}%"]) unless params[:artist].blank?
-    # @concerts = @concerts.where(date: params[:date]) if params[:date]
     @concerts = @concerts.where(["venues.name LIKE ?", "%#{params[:name]}%"]) unless params[:name].blank?
-    # @concerts = @concerts.associated_venues(params[:name]) unless params[:name].blank?
     @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:city]}%"]) unless params[:city].blank?
     @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:country]}%"]) unless params[:country].blank?
     if current_user
-      @concerts = current_user.concerts.order(date: :desc).page(params[:page]).per(10)
+      @concerts = current_user.concerts.order(date: :desc).page(params[:page]).per(8)
     else
-      @concerts = @concerts.order(date: :desc).page(params[:page]).per(10)
+      @concerts = @concerts.order(date: :desc).page(params[:page]).per(8)
     end
   end
 
@@ -25,6 +21,14 @@ class ConcertsController < ApplicationController
   # GET /concerts/1
   # GET /concerts/1.json
   def show
+    if current_user
+      @concerts = Concert.all.joins(:venue)
+      @concerts = @concerts.where(["artist LIKE ?", "%#{params[:artist]}%"]) unless params[:artist].blank?
+      @concerts = @concerts.where(["venues.name LIKE ?", "%#{params[:name]}%"]) unless params[:name].blank?
+      @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:city]}%"]) unless params[:city].blank?
+      @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:country]}%"]) unless params[:country].blank?
+      @concerts = @concerts.order(date: :desc).page(params[:page]).per(8)
+    end
   end
 
   # GET /concerts/new
@@ -33,14 +37,18 @@ class ConcertsController < ApplicationController
     @concert = Concert.new
     @concert.venue = Venue.new
     @venues = Venue.all
-
   end
 
   # GET /concerts/1/edit
   def edit
-    # @concert = Concert.joins(:venue)
     @concert = Concert.find(params[:id])
   end
+
+  def add_user
+    @concert = Concert.find(params[:id])
+    @concert.users << current_user  
+  end
+
 
   # POST /concerts
   # POST /concerts.json
@@ -50,7 +58,7 @@ class ConcertsController < ApplicationController
 
     respond_to do |format|
       if @concert.save
-        format.html { redirect_to @concert, notice: 'Concert was successfully created.' }
+        format.html { redirect_to user_concerts_path(current_user), notice: 'Concert was successfully created.' }
         format.json { render :show, status: :created, location: @concert }
       else
         format.html { render :new }
@@ -64,7 +72,7 @@ class ConcertsController < ApplicationController
   def update
     respond_to do |format|
       if @concert.update(concert_params)
-        format.html { redirect_to @concert, notice: 'Concert was successfully updated.' }
+        format.html { redirect_to user_concerts_path(current_user), notice: 'Concert was successfully updated.' }
         format.json { render :show, status: :ok, location: @concert }
       else
         format.html { render :edit }
@@ -78,7 +86,7 @@ class ConcertsController < ApplicationController
   def destroy
     @concert.destroy
     respond_to do |format|
-      format.html { redirect_to concerts_url, notice: 'Concert was successfully destroyed.' }
+      format.html { redirect_to user_concerts_path(current_user), notice: 'Concert was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

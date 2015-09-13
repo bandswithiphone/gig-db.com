@@ -31,20 +31,27 @@ body {
 /*home page */
 
 .welcome {
-  background-image:url("Image1.jpg");
+  background-image:url("Image.png");
   background-size: 100%;
   background-repeat: no-repeat;
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 600px;
 }
+.welcome_link {
+  font-size: 22px;
+}
 
 h3 {
   color: #B22222;
-  font-size: 22px;
+  font-size: 20px;
   margin: 14px;
 }
 
+h2 {
+  color: #fafafa;
+  font-size: 22px;
+}
 /*concert search filters*/
 
 .btn {
@@ -55,7 +62,7 @@ h3 {
   background-color: #B22222;
   color: #fafafa;
   font-weight: lighter;
-  font-size: 22px;
+  font-size: 20px;
   height: 42px;
   transition: 0.5s;
   font-family: Maiden Orange;
@@ -63,6 +70,7 @@ h3 {
 
 .btn:hover {
   box-shadow: none;
+  color: #fafafa;
 }
 
 .input_field {
@@ -76,17 +84,18 @@ h3 {
   width: 250px;
   height: 42px;
   padding: 11px 0px 11px 3px;
-  margin-left: 16px;
+  margin-left: 1px;
 }
+
 .user_input {
   border-width: 3px;
   border-color: #303f9f;
   border-radius: 4px;
   color: #B22222;
-  font-size: 22px;
+  font-size: 20px;
   font-family: Maiden Orange;
   width: 300px;
-  height: 46px;
+  height: 42px;
   padding: 15px 0px 10px 3px;
   margin-left: 16px;
 }
@@ -116,7 +125,7 @@ select {
 }
 
 .new_user {
-  font-size: 22px;
+  font-size: 20px;
   margin-left: 16px;
 }
 
@@ -137,6 +146,18 @@ select {
 
 .new_concert {
   width: 850px;
+}
+
+.venue_search {
+  display: inline block;
+  float: left;
+  width: 272px;
+  margin-left: 8px;
+  color: #B22222;
+}
+
+.hide {
+visibility: hidden
 }
 
 /*pagination*/
@@ -169,7 +190,7 @@ th, td {
 }
 
 td {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .form-control {
@@ -242,7 +263,7 @@ a:hover {
   background-color: #fafafa;
   color: #fafafa;
   font-weight: lighter;
-  font-size: 22px;
+  font-size: 20px;
   transition: 0.5s;
   font-family: Maiden Orange;
   position: relative;

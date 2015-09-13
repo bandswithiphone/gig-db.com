@@ -2,13 +2,13 @@ body {
   background-color: #fff;
   color: #333;
   font-family: Maiden Orange;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 18px;
 }
 
 p, ol, ul, td {
   font-family: Maiden Orange;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 18px;
 }
 
@@ -20,23 +20,23 @@ pre {
 
 a {
   color: #B22222;
-  font-size: 22px;
+  font-size: 20px;
 
   &:visited {
     color: #B22222;
-    font-size: 22px;
+    font-size: 20px;
   }
 
   &:hover {
     color: #FFE4E1;
     background-color: #FFFAFA;
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
 div {
   &.field, &.actions {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 }
 
@@ -70,7 +70,7 @@ div {
   }
 
   ul li {
-    font-size: 22px;
+    font-size: 20px;
     list-style: square;
   }
 }

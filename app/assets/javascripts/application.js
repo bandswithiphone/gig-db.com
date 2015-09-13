@@ -42,10 +42,6 @@ $(function()
             username: item.user.username
           })
         );
-        // .append("<li><a target='_blank' href='" + data.data[i].link + "'><img class='insta_photo' src='" +
-        //   data.data[i].images.low_resolution.url  + "'></img><img class='username' src='" + data.data[i].user.profile_picture + "'></img></a><p class='username'>" + "@" + data.data[i].user.username +"</p></li>");
-
-        // }
       }
     }
   });

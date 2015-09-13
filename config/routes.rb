@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
 
   resources :concerts
+  post 'concerts/add_user'
   
   resources :users do 
     resources :concerts

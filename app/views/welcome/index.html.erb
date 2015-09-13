@@ -6,10 +6,11 @@
 </div>
 
 <div class="welcome">
-<h3>Keep track of the concerts you've been to</h3>
-<h3>See where your favourite artists have played</h3>
-<h3>See photos of concerts you've been to or wish you'd attended</h3><h3><%= link_to 'Show', concerts_path %></h3>
-<br>
-<h3><%= link_to 'Create an account', new_user_path %> to save your concert list</h3>
-<h3>Already have an account? <%= link_to 'Login', login_path %> here</h3>
+  <h2>Keep track of the concerts you've been to</h2>
+  <h2>See where your favourite artists have played</h2>
+  <h2>See photos of concerts you've been to or wish you'd attended</h2>
+  <h2><%= link_to 'Show', concerts_path, :class => "welcome_link" %></h2>
+  <br>
+  <h2><%= link_to 'Create an account', new_user_path, :class => "welcome_link" %> to save your concert list</h2>
+  <h2>Already have an account? <%= link_to 'Login', login_path, :class => "welcome_link" %> here</h2>
 </div>

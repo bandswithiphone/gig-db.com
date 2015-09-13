@@ -2,11 +2,11 @@
   <% if @concert.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
-      <ul>
+        <ul>
       <% @concert.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <li><%= message %></li>
       <% end %>
-      </ul>
+        </ul>
     </div>
   <% end %>
 

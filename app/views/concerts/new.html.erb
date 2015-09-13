@@ -10,6 +10,7 @@
     <%= link_to 'Login', login_path %>
     <% end %>
   </div>
+</div>
 
 
 <h1>Add a new concert</h1>
@@ -18,18 +19,18 @@
   <% if @concert.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@concert.errors.count, "error") %> prohibited this concert from being saved:</h2>
-
-      <ul>
-      <% @concert.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @concert.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
     </div>
   <% end %>
+  <br>
 
   <div class="concert_search">
     <%= f.label :artist %><br>
-    <%= f.text_field :artist, :class => 'input_field' %>
+    <%= f.text_field :artist, :class => 'input_field', :placeholder => 'Add an artist' %>
   </div>
   <div class="concert_search">
     <%= f.label :date %><br>
@@ -50,6 +51,8 @@
 <h3>Venue not on the list? <%=link_to 'Add a new venue', new_venue_path %></h3>
 
 <h3><%= link_to 'Back to my concert list', user_concerts_path(current_user) %></h3>
+
+<h3><%= link_to 'Go to main concert page', user_path(current_user) %></h3>
 
 
 

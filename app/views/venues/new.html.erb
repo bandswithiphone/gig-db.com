@@ -5,11 +5,12 @@
   </div>
   <div id= 'logout'>
     <% if current_user.present? %>
-    <%= link_to 'Log out', logout_path %>
+      <%= link_to 'Log out', logout_path %>
     <% else %>
-    <%= link_to 'Login', login_path %>
+      <%= link_to 'Login', login_path %>
     <% end %>
   </div>
+</div>
 
 
 <h1>Add a New Venue</h1>
@@ -18,12 +19,11 @@
   <% if @venue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</h2>
-
-      <ul>
-      <% @venue.errors.full_messages.each do |message| %>
+        <ul>
+          <% @venue.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
-      </ul>
+          <% end %>
+        </ul>
     </div>
   <% end %>
 

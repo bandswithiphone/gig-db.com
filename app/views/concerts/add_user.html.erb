@@ -10,7 +10,7 @@
   </div>
 </div>
 
-<h1>Editing Concert</h1>
+<h1>Add concert to my list</h1>
 <%= form_for(@concert) do |f| %>
  <div class="concert_search">
     <%= f.label :artist %><br>
@@ -22,7 +22,7 @@
   </div>
 <br>
   <div class="submit_concert_button">
-    <%= f.submit "Edit the concert" , { :class => 'btn' } %>
+    <%= f.submit "Add the concert" , { :class => 'btn' } %>
   </div>
 <% end %>
 <br> 

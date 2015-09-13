@@ -1,10 +1,18 @@
 class UsersController < ApplicationController
 
   def index
+    @user = User.find(params[:id])
   end
 
-  def show
-    @user = User.find(params[:id])
+  def show 
+    if current_user
+      @concerts = Concert.all.joins(:venue)
+      @concerts = @concerts.where(["artist LIKE ?", "%#{params[:artist]}%"]) unless params[:artist].blank?
+      @concerts = @concerts.where(["venues.name LIKE ?", "%#{params[:name]}%"]) unless params[:name].blank?
+      @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:city]}%"]) unless params[:city].blank?
+      @concerts = @concerts.where(["venues.city LIKE ?", "%#{params[:country]}%"]) unless params[:country].blank?
+      @concerts = @concerts.order(date: :desc).page(params[:page]).per(8)
+    end
   end
 
   def new
@@ -37,8 +45,6 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    # session[:user_id] = nil
-    # redirect_to concerts_path, notice: "Adios!"
   end
 
   protected
