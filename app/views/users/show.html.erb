@@ -38,9 +38,16 @@
     <div class= "submit_concert_button" >
         <%= submit_tag "Search for a concert", { :class => 'btn' } %> 
     </div>
-      <% end %>
+<% end %>
 
 <table class="hoverable">
+  <!-- <tbody>
+    <tr>
+        <td colspan="7">
+
+        </td>
+    </tr>
+   </tbody>-->
   <tbody>
     <br>
     <%= paginate @concerts %> 
@@ -52,12 +59,12 @@
         <td><%= concert.venue.city %></td>
         <td><%= concert.venue.country %></td>
         <td><%= concert.date %></td>
-        <td class= "hide"><%= concert.id %><td>
+        <!-- <td class= "hide"><%= concert.id %><td> -->
         <!-- #hidden field tag (concert.id) -->
-        <td><%= link_to 'Show photo', concert %></td>
-            <% if current_user.present? %>
-        <td><%= link_to 'Add concert to my list', concerts_add_user_path(concert.id) %></td>
-            <% end %>
+        <td><%= link_to 'Show photo', photo_path(concert_id: concert.id) %></td>
+    <% if current_user.present? %>
+        <td><%= link_to 'Add concert to my list', concert_user_path(concert, current_user) %></td>
+    <% end %>
       </tr>
     <% end %>
   </tbody>

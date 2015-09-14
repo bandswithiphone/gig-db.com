@@ -13,13 +13,14 @@
 </div>
 
 
-<h1>How to add a photo from Instagram</h1>
+<h1>Adding a photo from your Instagram account</h1>
 <ol>
-<li>In your Instagram account, select the photo you want to be stored</li>
-<li>Copy the embed code from the Instagram photo into the box below</li>
-<li><a href="https://instagram.com/developer/embedding/"><p>Here's how to do it</p></a></li>
+<li class="photo_upload">In your Instagram account, select the photo you want to be stored</li>
+<li class="photo_upload">Copy the embed code from the Instagram photo into the box below</li>
+<li><a href="https://instagram.com/developer/embedding/"><p class="photo_upload">Here's how to do it</p></a></li>
 
 <%= form_for(@photo) do |f| %>
+  <%= hidden_field_tag(:concert_id, params[:concert_id]) %>
   <% if @photo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
@@ -31,9 +32,9 @@
     </div>
   <% end %>
 
-  <div class="venue_search">
-    <%= f.label :photo %><br>
-    <%= f.text_field :photo, :class => 'input_field' %>
+  <div class="embed_code">
+    <%= f.label :photo, "Instagram embed code", :class => "photo_upload" %><br>
+    <%= f.text_field :photo, :class => 'embed_field', :placeholder => 'Paste the Instagram embed code here' %>
   </div>
   <div class= "submit_concert_button" >
     <%= submit_tag "Save Instagram Embed Code", { :class => 'btn' } %> 

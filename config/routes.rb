@@ -3,8 +3,10 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  resources :concerts
-  post 'concerts/add_user'
+  resources :concerts do
+    resources :users, only: [:update, :destroy], controller: 'concert_users'
+    # post 'add_user', to: 'concerts#add_user', as: 'add_user'
+  end
   
   resources :users do 
     resources :concerts

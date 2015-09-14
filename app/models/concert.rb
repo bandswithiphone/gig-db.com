@@ -2,6 +2,7 @@ class Concert < ActiveRecord::Base
 
   belongs_to :venue
   has_and_belongs_to_many  :users
+  has_many :photos
 
   validates_uniqueness_of :artist, :scope => :date
 

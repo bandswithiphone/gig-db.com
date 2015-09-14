@@ -52,11 +52,11 @@
         <td><%= concert.venue.country %></td>
         <td><%= concert.date %></td>
         <td class= "hide"><%= concert.id %><td>
-        <td><%= link_to 'Show photo', photo_path(concert.id) %></td>
+        <td><%= link_to 'Show photo', photo_path(concert_id: concert.id) %></td>
         <% if current_user.present? %>
         <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
         <td><%= link_to 'Delete', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Add photo from Instagram', new_photo_path %></td>
+        <td><%= link_to 'Add photo from Instagram', new_photo_path(concert_id: concert.id) %></td>
         <% end %>
       </tr>
     <% end %>
@@ -67,7 +67,8 @@
 
 <% if current_user.present? %>
     <%= link_to 'Add a new concert to my concert list', new_concert_path %> |
-    <%= link_to 'Add a new venue', new_venue_path %>
+    <%= link_to 'Add a new venue', new_venue_path %> |
+    <%= link_to 'Go to main concert page', user_path(current_user) %>
 <% else %>
     <%= link_to 'Go to main concert page', concerts_path %> |
     <%= link_to 'Create an account', new_user_path %>

@@ -44,12 +44,6 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
   end
 
-  def add_user
-    @concert = Concert.find(params[:id])
-    @concert.users << current_user  
-  end
-
-
   # POST /concerts
   # POST /concerts.json
   def create

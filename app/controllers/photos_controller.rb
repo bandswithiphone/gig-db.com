@@ -1,11 +1,11 @@
 class PhotosController < ApplicationController
 
   def index
-    @photo = Photo.all
+    @photos = Photo.all
   end
 
   def show
-    @photo = Photo.find(params[:id])
+    @photos = Photo.where(concert_id: params[:id])
   end
 
   def new
@@ -14,9 +14,9 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
-    @photo.user << current_user
+    @photo.user_id = current_user.id
     # @photo.user_id << current_user
-    @photo.concert << Concert.id
+    @photo.concert_id = Concert.find(params[:concert_id]).id
     
     respond_to do |format|
       if @photo.save
@@ -29,11 +29,9 @@ class PhotosController < ApplicationController
     end
   end
 
-end
-
   private
   
   def photo_params
     params.require(:photo).permit(:photo,:concert_id,:user_id)
   end
-
+end
