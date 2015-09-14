@@ -52,7 +52,7 @@
         <td><%= concert.venue.country %></td>
         <td><%= concert.date %></td>
         <td class= "hide"><%= concert.id %><td>
-        <td><%= link_to 'Show photo', photo_path(concert_id: concert.id) %></td>
+        <td><%= link_to 'Show photo', photo_path(concert.id) %></td>
         <% if current_user.present? %>
         <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
         <td><%= link_to 'Delete', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
