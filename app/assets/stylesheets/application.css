@@ -27,19 +27,33 @@ body {
   background: linear-gradient(to right, #fafafa, #303f9f 88%, #303f9f);
 }
 
-
 /*home page */
 
 .welcome {
   background-image:url("Image.png");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   padding-top: 10px;
   padding-bottom: 10px;
   min-height: 600px;
+
 }
+
+#img.source-image {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .welcome_link {
   font-size: 22px;
+  color: #fafafa;
+}
+
+.welcome_link:visited {
+  font-size: 22px;
+  color: #fafafa;
 }
 
 h3 {
@@ -132,11 +146,8 @@ select {
 .concert_search {
   display: inline block;
   float: left;
-  /*padding: 30px 0 0 35px;*/
   width: 272px;
   margin-left: 8px;
-  /*border-color: #303f9f;
-  border-width: 5px;*/
   color: #B22222;
 }
  
@@ -157,7 +168,7 @@ select {
 }
 
 .hide {
-visibility: hidden
+  visibility: hidden
 }
 
 /*pagination*/
@@ -179,7 +190,6 @@ visibility: hidden
 .pagination .current{
   margin: 2px 2px 2px 0;
   padding:6px 9px 5px 9px;
-  /*font-weight: bold;*/
   background: #fafafa;
 }
 
@@ -424,6 +434,14 @@ img, .insta_photo:hover {
   font-size: 18px;
   float: left;
   border-radius: 6px;
+}
+
+.instagram {
+  display: inline-block;
+  width: 279px;
+  height: 276px;
+  vertical-align: middle;
+  background-color: none;
 }
 
   /*.user_details {

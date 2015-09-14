@@ -5,9 +5,9 @@
   </div>
   <div id= 'logout'>
     <% if current_user.present? %>
-    <%= link_to 'Log out', logout_path %>
+        <%= link_to 'Log out', logout_path %>
     <% else %>
-    <%= link_to 'Create an account', new_user_path %>
+        <%= link_to 'Create an account', new_user_path %>
     <% end %>
   </div>
 </div>
@@ -57,8 +57,6 @@
         <td><%= link_to 'Show photo', concert %></td>
             <% if current_user.present? %>
         <td><%= link_to 'Add concert to my list', concerts_add_user_path(concert.id) %></td>
-
-        <!-- add data attribute to send as a parameter via the link_to -->
             <% end %>
       </tr>
     <% end %>

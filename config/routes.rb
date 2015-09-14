@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :concerts
   end
 
+  resources :photos do
+    resources :concerts
+  end
+
   resources :venues
 
   resources :sessions, only: [:new, :create, :destroy]

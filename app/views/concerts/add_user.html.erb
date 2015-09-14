@@ -6,6 +6,8 @@
   <div id= 'logout'>
     <% if current_user.present? %>
     <%= link_to 'Logout', logout_path %>
+    <% else %>
+    <%= link_to 'Create an account', new_user_path %>
     <% end %>
   </div>
 </div>

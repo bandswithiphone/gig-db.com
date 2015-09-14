@@ -1,0 +1,41 @@
+<div id="nav-bar">
+  <div>
+    <i class="large material-icons">queue_music</i>
+    <h3 id ="gig-db">GIG-db.com</h3>
+  </div>
+  <div id='logout'>
+    <% if current_user.present? %>
+        <%= link_to 'Log out', logout_path %>
+    <% else %>
+        <%= link_to 'Login', login_path %>
+    <% end %>
+  </div>
+</div>
+
+
+<h1>How to add a photo from Instagram</h1>
+<ol>
+<li>In your Instagram account, select the photo you want to be stored</li>
+<li>Copy the embed code from the Instagram photo into the box below</li>
+<li><a href="https://instagram.com/developer/embedding/"><p>Here's how to do it</p></a></li>
+
+<%= form_for(@photo) do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+        <ul>
+        <% @photo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+    </div>
+  <% end %>
+
+  <div class="venue_search">
+    <%= f.label :photo %><br>
+    <%= f.text_field :photo, :class => 'input_field' %>
+  </div>
+  <div class= "submit_concert_button" >
+    <%= submit_tag "Save Instagram Embed Code", { :class => 'btn' } %> 
+  </div>
+<% end %>

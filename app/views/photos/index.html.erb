@@ -1,6 +1,32 @@
-<h1>Testing the instagram api</h1>
-<ul class= "photos"</ul>
-<!-- <span class="insta_photo"></span> -->
-<span class=tagline></span>
-<ul class="username">
-</ul>
+<div id="nav-bar">
+  <div>
+    <i class="large material-icons">queue_music</i>
+    <h3 id ="gig-db">GIG-db.com</h3>
+  </div>
+  <div id='logout'>
+    <% if current_user.present? %>
+        <%= link_to 'Log out', logout_path %>
+    <% else %>
+        <%= link_to 'Login', login_path %>
+    <% end %>
+  </div>
+</div>
+<ul class= "instagram"</ul>
+
+
+<table class="hoverable">
+  <tbody>
+    <br>
+    <%= paginate @photos %> 
+    <br> 
+    <% @photos.each do |photo| %>
+      <tr>
+        <td class="instagram"><%= photo.photo %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back to my concert list', user_concerts_path(current_user) %>
+
