@@ -24,9 +24,12 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render "layouts/header" %>
+    <% if current_page?(welcome_index_path) %>
+        <%= render 'layouts/header_home' %>
+    <% else %>
+        <%= render 'layouts/header' %>
+    <% end %>
     <%= yield %>
-    <%= render "layouts/footer" %>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.js"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

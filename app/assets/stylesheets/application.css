@@ -276,7 +276,7 @@ a:hover {
   padding-right: 0px;
 }
 
-#nav-bar-home {
+div#nav-bar-home {
   border-bottom: 7px solid #000000;
   background-color: #000000;
 }
@@ -335,6 +335,9 @@ a:hover {
   font-size: 20px;
 }
 
+body.homepage #navigation-top {
+  display: none !important;
+}
 /*footer on all pages*/
 /*#footer {
   width: 100%;
