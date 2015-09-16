@@ -1,14 +1,16 @@
-<div id="nav-bar">
-  <div>
-    <i class="large material-icons">queue_music</i>
-    <h3 id ="gig-db">GIG-db.com</h3>
-  </div>
-  <div id='logout'>
-    <% if current_user.present? %>
-        <%= link_to 'Log out', logout_path %>
-    <% else %>
-        <%= link_to 'Login', login_path %>
-    <% end %>
+<div class="container-fluid">
+  <div id="nav-bar">
+    <div>
+      <i class="large material-icons">queue_music</i>
+      <h3 id ="gig-db">GIG-db.com</h3>
+    </div>
+    <div id='logout'>
+      <% if current_user.present? %>
+          <%= link_to 'Log out', logout_path %>
+      <% else %>
+          <%= link_to 'Login', login_path %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -16,8 +18,10 @@
 <h1>Adding a photo from your Instagram account</h1>
 <ol>
 <li class="photo_upload">In your Instagram account, select the photo you want to be stored</li>
-<li class="photo_upload">Copy the embed code from the Instagram photo into the box below</li>
-<li><a href="https://instagram.com/developer/embedding/"><p class="photo_upload">Here's how to do it</p></a></li>
+<li class="photo_upload">In the bottom right corner, you'll see 3 dots. Click on them</li>
+<li class="photo_upload">Then click on Embed</li>
+<li class="photo_upload">Copy the Embed Code from the Instagram photo into the box below</li>
+<li class="photo_upload"><a href="https://instagram.com/developer/embedding/" class="photo_upload">Here's how to do it</a></li>
 
 <%= form_for(@photo) do |f| %>
   <%= hidden_field_tag(:concert_id, params[:concert_id]) %>
@@ -33,10 +37,14 @@
   <% end %>
 
   <div class="embed_code">
-    <%= f.label :photo, "Instagram embed code", :class => "photo_upload" %><br>
-    <%= f.text_field :photo, :class => 'embed_field', :placeholder => 'Paste the Instagram embed code here' %>
+    <%= f.label :photo, "Instagram Embed Code", :class => "photo_upload" %><br>
+    <%= f.text_field :photo, :class => 'embed_field', :placeholder => 'Copy the Embed Code from Instagram here' %>
   </div>
   <div class= "submit_concert_button" >
     <%= submit_tag "Save Instagram Embed Code", { :class => 'btn' } %> 
   </div>
 <% end %>
+<br>
+<br>
+<br>
+<%= link_to 'Back to my concert list', user_concerts_path(current_user) %>

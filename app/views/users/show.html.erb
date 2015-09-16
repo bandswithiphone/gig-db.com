@@ -1,15 +1,17 @@
-<div id="nav-bar">
-  <div>
-    <i class="large material-icons">queue_music</i>
-    <h3 id ="gig-db">GIG-db.com</h3>
-  </div>
-  <div id= 'logout'>
-    <% if current_user.present? %>
-        <%= link_to 'Log out', logout_path %>
-    <% else %>
-        <%= link_to 'Create an account', new_user_path %>
-    <% end %>
-  </div>
+<div class="container-fluid">
+    <div id="nav-bar">
+      <div>
+        <i class="large material-icons">queue_music</i>
+        <h3 id="gig-db">GIG-db.com</h3>
+      </div>
+      <div id='logout'>
+        <% if current_user.present? %>
+            <%= link_to 'Log out', logout_path %>
+        <% else %>
+            <%= link_to 'Create an account', new_user_path %>
+        <% end %>
+      </div>
+    </div>
 </div>
 
 
@@ -53,7 +55,7 @@
     <%= paginate @concerts %> 
     <br> 
     <% @concerts.each do |concert| %>
-      <tr>
+      <tr>  
         <td><%= concert.artist %></td>
         <td><%= concert.venue.name %></td>
         <td><%= concert.venue.city %></td>

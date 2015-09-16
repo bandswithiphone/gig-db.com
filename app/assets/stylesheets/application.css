@@ -27,10 +27,14 @@ body {
   background: linear-gradient(to right, #fafafa, #303f9f 88%, #303f9f);
 }
 
+html, body {
+  height:100%;
+  overflow:auto
+}
 /*home page */
 
 .welcome {
-  background-image:url("Image.png");
+  background-image:url("Image2.png");
   background-size: cover;
   background-repeat: no-repeat;
   padding-top: 10px;
@@ -53,7 +57,7 @@ body {
 
 .welcome_link:visited {
   font-size: 22px;
-  color: #fafafa;
+  color: #B22222;
 }
 
 h3 {
@@ -267,8 +271,13 @@ a:hover {
   width: 100%;
 }
 
+.container-fluid {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 #nav-bar-home {
-  border-bottom: 4px solid #000000;
+  border-bottom: 7px solid #000000;
   background-color: #000000;
 }
 
@@ -286,7 +295,7 @@ a:hover {
 }
 
 .large material-icons {
-  position: absolute;
+  position: relative;
 }
 #gig-db {
   color: #fafafa;
@@ -311,6 +320,8 @@ a:hover {
   position: relative;
   float: right;
   text-align: center;
+  display: block;
+  -webkit-transform: translateZ(0);
 }
 
 #logout:hover {
@@ -395,6 +406,24 @@ ul {
   padding: 5px; 
   width: 310px; 
 }*/
+li.photo_upload {
+  margin: 0;
+  text-decoration: none;
+  padding: .5em 1em;
+}
+
+a.photo_upload {
+  color: #303f9f;
+  margin: 0;
+  font-size: 22px;
+}
+
+a.photo_upload:hover {
+  color: #B22222;
+  text-decoration: none;
+  background: none;
+
+}
 
 li a { 
   color: #fafafa;
@@ -408,10 +437,6 @@ li a {
   list-style: none;
   width: 226px;
 }
- 
-/*li:hover { 
-  background: #B22222;
-}*/
 
 img {
   height: 226px;

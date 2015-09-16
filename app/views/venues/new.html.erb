@@ -1,14 +1,16 @@
-<div id="nav-bar">
-  <div>
-    <i class="large material-icons">queue_music</i>
-    <h3 id ="gig-db">GIG-db.com</h3>
-  </div>
-  <div id= 'logout'>
-    <% if current_user.present? %>
-      <%= link_to 'Log out', logout_path %>
-    <% else %>
-      <%= link_to 'Login', login_path %>
-    <% end %>
+<div class="container-fluid">
+  <div id="nav-bar">
+    <div>
+      <i class="large material-icons">queue_music</i>
+      <h3 id ="gig-db">GIG-db.com</h3>
+    </div>
+    <div id= 'logout'>
+      <% if current_user.present? %>
+        <%= link_to 'Log out', logout_path %>
+      <% else %>
+        <%= link_to 'Login', login_path %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -29,15 +31,15 @@
 
   <div class="venue_search">
     <%= f.label :name %><br>
-    <%= f.text_field :name, :class => 'input_field' %>
+    <%= f.text_field :name, :class => 'input_field', :placeholder => 'Venue name' %>
   </div>
   <div class="venue_search">
     <%= f.label :city %><br>
-    <%= f.text_field :city, :class => 'input_field' %>
+    <%= f.text_field :city, :class => 'input_field', :placeholder => 'Venue city' %>
   </div>
   <div class="venue_search">
     <%= f.label :country %><br>
-    <%= f.text_field :country, :class => 'input_field' %>
+    <%= f.text_field :country, :class => 'input_field', :placeholder => 'Venue country' %>
   </div>
   <br>
   <div class="submit_concert_button" >

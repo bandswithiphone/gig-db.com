@@ -43,6 +43,13 @@ class ConcertsController < ApplicationController
   def edit
     @concert = Concert.find(params[:id])
   end
+  
+  # def show_photo
+  #   if @photo.concert_id = Concert.find(params[:concert_id]).id
+  #   else
+  #     render :new
+  #   end
+  # end
 
   # POST /concerts
   # POST /concerts.json

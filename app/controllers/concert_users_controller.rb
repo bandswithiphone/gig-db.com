@@ -10,7 +10,6 @@ class ConcertUsersController < ApplicationController
   end
 
   def show
-    # binding.pry
     @concertusers = ConcertUser.all
     @concert = Concert.find(params[:concert_id])
     @concert.users << current_user 
