@@ -6,6 +6,8 @@ class PhotosController < ApplicationController
 
   def show
     @photos = Photo.where(concert_id: params[:id])
+    @concert = Concert.where(concert_id: params[:id])
+    @venue = Venue.where(concert_id: params[:id])
   end
 
   def new

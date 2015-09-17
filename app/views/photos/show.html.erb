@@ -9,7 +9,12 @@
 <% end %>
 </div>
 <br>
+
 <% @photos.each do |photo| %>
+  <!-- 
+  <%= photo.concert.artist %>
+  <%= photo.concert.date %>
+   -->
   <div class="instagram">
   <%= photo.photo.html_safe %> <%# VERY UNSAFE!!!!!! photo code comes from the user %>
   </div>

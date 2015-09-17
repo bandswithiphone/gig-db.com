@@ -45,7 +45,11 @@
         <td><%= concert.venue.city %></td>
         <td><%= concert.venue.country %></td>
         <td><%= concert.date %></td>
-        <td><%= link_to 'Show photo', photo_path(concert.id) %></td>
+    <% unless concert.photos.empty? %>
+        <td><%= link_to 'Show Photo(s)', photo_path(concert.id) %></td>
+    <% else %>
+        <td></td>
+    <% end %>
     <% if current_user.present? %>
         <td><%= link_to 'Add concert to my list', concert_user_path(concert, current_user) %></td>
     <% end %>
@@ -55,6 +59,7 @@
 </table>
 
 <br>
+
 
 <%= link_to 'Back to my concert list', user_concerts_path(current_user) %>
 

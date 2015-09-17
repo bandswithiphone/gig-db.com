@@ -38,11 +38,13 @@
         <td><%= concert.date %></td>
         <td class= "hide"><%= concert.id %><td>
         <% unless concert.photos.empty? %>
-        <td><%= link_to 'Show photo', photo_path(concert.id) %></td>
+        <td><%= link_to 'Show photo(s)', photo_path(concert.id) %></td>
+        <% else %>
+        <td></td>
         <% end %>
         <% if current_user.present? %>
         <td><%= link_to 'Edit', edit_concert_path(concert) %></td>
-        <td><%= link_to 'Delete', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%= link_to 'Delete', concert, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
         <td><%= link_to 'Add photo from Instagram', new_photo_path(concert_id: concert.id) %></td>
         <% end %>
       </tr>

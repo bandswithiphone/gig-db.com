@@ -6,6 +6,10 @@ class Concert < ActiveRecord::Base
 
   validates_uniqueness_of :artist, :scope => :date
 
+  def concert_details
+    "#{artist}, #{date}"
+  end
+
   # scope :associated_venues, lambda { |venue| 
   #           includes(:venues).where('venue.name LIKE ?', "%#{venue}%") 
   # }
